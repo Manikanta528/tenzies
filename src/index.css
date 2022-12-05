@@ -21,6 +21,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    row-gap: 64px;
 }
 .die{
     font-size: large;
@@ -42,4 +43,23 @@ main{
     grid-gap: 64px;
     justify-items: center;
 }
-
+.roll-button{
+    
+    height: 50px;
+    width: 100px;
+    font-size: 1rem;
+    border: none;
+    background-color: #5035FF;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+.roll-button:focus{
+    outline: none;
+}
+.roll-button:active{
+    position: relative;
+    bottom: 2px;
+    box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
