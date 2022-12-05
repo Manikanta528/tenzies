@@ -19,11 +19,21 @@ export default function App(){
         return arr;
     }
 
+    function dieHold(id){
+        setDices(preDice => {
+            return preDice.map(die => (die.id === id) ? {...die, isHeld : !die.isHeld} : die );
+        } )
+    }
+
     function rollHandle(){
-        setDices(allNewDice());
+        setDices(prevDice => prevDice.map(
+            die => (die.isHeld === false) ? {...die, value : Math.floor(Math.random() * 6) + 1 } : {...die})
+        );
     }
     
-    const all10Diecs = dices.map(die => <Die key={die.id} value={die.value} />)
+    const all10Diecs = dices.map(
+        die => <Die key={die.id} value={die.value} isHeld={die.isHeld} dieHold={() => dieHold(die.id)}  />
+        )
 
     return(
         <main>
